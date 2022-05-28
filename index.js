@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const swaggerUI = require('swagger-ui-express');
 const YAML = require('yamljs')
 const path = require('path')
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const url = "mongodb+srv://Dishant:qFQIPigkZccFGkp3@cluster0.hikpg.mongodb.net/restaurants?retryWrites=true&w=majority";
 
 app.use(bodyParser.urlencoded({ extended:true }));
