@@ -37,6 +37,12 @@ app.listen(PORT, ()=> {
     console.log(`Go to ${link}`);
 })
 
+app.use((req, res, next)=> {
+    res.setHeader({
+        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Headers" : "Content-Type, api_key, Authorization"
+    });
+})
 const Router = require('./api/routes/Routes');
 app.use('/', Router);
 
