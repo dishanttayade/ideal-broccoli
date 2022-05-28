@@ -4,11 +4,15 @@ const bodyParser = require('body-parser');
 const swaggerUI = require('swagger-ui-express');
 const YAML = require('yamljs')
 const path = require('path')
+const http = require('http');
 const PORT = process.env.PORT || 3000;
 const url = "mongodb+srv://Dishant:qFQIPigkZccFGkp3@cluster0.hikpg.mongodb.net/restaurants?retryWrites=true&w=majority";
 
-app.use(bodyParser.urlencoded({ extended:true }));
-app.use(bodyParser.json());
+const server = http.createServer(app);
+
+
+// app.use(bodyParser.urlencoded({ extended:true }));
+// app.use(bodyParser.json());
 
 
 
@@ -33,15 +37,16 @@ app.get('/', (req, res) => {
 
 const link = `http://localhost:${PORT}`;
 
-app.listen(PORT, ()=> {
+server.listen(PORT, ()=> {
     console.log(`Go to ${link}`);
 })
 
 app.use((req, res, next)=> {
-    res.setHeader({
-        "Access-Control-Allow-Origin" : "*",
-        "Access-Control-Allow-Headers" : "Content-Type, api_key, Authorization"
-    });
+    res.setHeader("Access-Control-Allow-Origin", '*')
+	res.setHeader("Access-Control-Allow-Methods", 'GET')
+    res.setHeader("Access-Control-Allow-Headers", 'Content-Type', "Authorization")
+    res.header("Access-Control-Allow-Credentials", true)
+    next();
 })
 const Router = require('./api/routes/Routes');
 app.use('/', Router);
