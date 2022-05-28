@@ -1,0 +1,60 @@
+openapi: 3.0.0
+info: 
+  title: Api Details
+  description: Gives an interface
+servers:
+  - url: http://localhost:3000
+    description: backend
+  
+
+paths:
+  /api:
+    get:
+      summary: Returns a list of all the restaurants.
+      tags: [Restaurants]
+      responses:
+        '200':
+          description: A json array of restaurants with details in it
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Restaurants'
+        '400-404':
+          description: Problem with Backend connection.
+  
+  /api?page={page}&limit={limit}:
+    get:
+      summary: Returns a list of specified no of records.
+      tags: [Restaurants]
+      parameters: 
+        - in: query
+          name: page
+          type: integer
+        - in: query
+          name: limit
+          type: integer
+      content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Restaurants'
+      responses: 
+        '200':
+          description: A json array with records in it
+        
+
+
+components:
+  schemas:
+    Restaurants:
+      type: object
+      properties:
+        address: 
+          type: object
+        cuisine:
+          type: string
+        grades:
+          type: array
+        name:
+          type: string
+        restaurant_id:
+          tupe: number

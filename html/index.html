@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bodycenter{
+            align-self: center;
+            margin: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="bodycenter">
+        Hello There!
+        <div>
+            <form action="/api?page=req.body.page&limit=req.body.limit">
+                <label for="page">Page : </label>
+                <input type="number" name="page" placeholder="1-100"> 
+                <br>
+                <label for="limit">Records Per Page: </label>
+                <input type="number" name="limit" placeholder="1-100">
+                <button>Submit</button>
+            </form>
+        </div>
+        Want to visit OPENAPI documentation
+        <a href="/api-docs">Click here</a>
+
+    </div>
+</body>
+</html>

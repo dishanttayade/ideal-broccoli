@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const swaggerUI = require('swagger-ui-express');
+const YAML = require('yamljs')
+const path = require('path')
 const PORT = 3000;
 const url = "mongodb+srv://Dishant:qFQIPigkZccFGkp3@cluster0.hikpg.mongodb.net/restaurants?retryWrites=true&w=majority";
 
@@ -25,7 +28,7 @@ err =>{
 
 
 app.get('/', (req, res) => {
-    res.send("Hello World!");
+    res.sendFile(path.join(__dirname,'html/index.html'));
 })
 
 const link = `http://localhost:${PORT}`;
@@ -37,4 +40,6 @@ app.listen(PORT, ()=> {
 const Router = require('./api/routes/Routes');
 app.use('/', Router);
 
+const swaggerDocument = YAML.load('./swagger.yaml')
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
