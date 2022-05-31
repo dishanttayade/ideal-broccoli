@@ -4,7 +4,7 @@ info:
   description: Gives an interface
 # port: ${PORT}
 servers:
-  - url: http://moodme-assign.herokuapp.com
+  - url: https://moodme-assign.herokuapp.com
     description: backend
   
 
