@@ -14,7 +14,7 @@ Hello there
   - Limit gives us the no. of documents we want on one single page.
   - As it wasn't possible to add frontend like pagination I have made the first page of application where you can enter page np. and limit so that it'll take you there.
 
-## Link for the Deployment :
+## Link for the Deployed Web App :
   - [Click Here](https://moodme-assign.herokuapp.com/)
 
 
