@@ -16,3 +16,7 @@ Hello there
 
 ## Link for the Deployment :
   - [Click Here](https://moodme-assign.herokuapp.com/)
+
+
+## To Run it locally :
+    - Change all the moodme-assign.herokuapp.com to localhost
