@@ -2,8 +2,9 @@ openapi: 3.0.0
 info: 
   title: Api Details
   description: Gives an interface
+# port: ${PORT}
 servers:
-  - url: http://localhost:3000
+  - url: http://moodme-assign.herokuapp.com
     description: backend
   
 
